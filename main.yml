@@ -1,0 +1,21 @@
+- hosts: all
+  vars_files: 
+    - access_netApp.yml
+    #- roles/netapp_golden_settings/vars/main.yml
+  collections:
+    - netapp.ontap
+  gather_facts: no
+  vars:
+    input: &input
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+    
+  vars:
+    mail_output: |
+      {%- set o=[] %}
+      {%- for i in play_hosts %}
+        {%- if o.append(hostvars[i].error_output) %}
+        {%- endif %}
+      {%- endfor %}
+      {{ o }} 
