@@ -1,7 +1,0 @@
-- name: run ontap rest cli command
-  netapp.ontap.na_ontap_rest_cli:
-    hostname: "{{ hcfncs301 }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
-    command: 'version'
-    verb: 'GET'

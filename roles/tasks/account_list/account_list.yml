@@ -1,0 +1,11 @@
+- name: run ontap rest cli command
+  netapp.ontap.na_ontap_rest_cli:
+    hostname: "{{ cluster_name }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+    command: 'version'
+    verb: 'GET'
+    ontapi              : 32
+    https               : true
+    validate_certs      : false
+  connection            : local
