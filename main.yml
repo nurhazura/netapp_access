@@ -2,7 +2,7 @@
 - name: connect to play
   hosts: "{{ cluster_name }}"
   vars_files: 
-    - access_netApp.yml
+    - vars/Access_NetApp.yml
     #- roles/netapp_golden_settings/vars/main.yml
   collections:
     - netapp.ontap
