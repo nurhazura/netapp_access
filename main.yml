@@ -1,8 +1,8 @@
 ---
 - name: connect to play
   hosts: "{{ cluster_name }}"
-  vars_files: 
-    - vars/Access_NetApp.yml
+  # vars_files: 
+  #   - vars/Access_NetApp.yml
     #- roles/netapp_golden_settings/vars/main.yml
   collections:
     - netapp.ontap
@@ -13,6 +13,9 @@
       hostname: "{{ inventory_hostname }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
+  
+  vars_files: 
+    - vars/Access_NetApp.yml
     
   roles:
     - account_list
