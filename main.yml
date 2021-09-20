@@ -2,7 +2,7 @@
 - name: connect to play
   hosts: "{{ cluster_name }}"
   vars_files: 
-    - vars/Access_NetApp.yml
+    - vars/access_netapp.yml
   collections:
     - netapp.ontap
   gather_facts: no
@@ -14,7 +14,7 @@
       password: "{{ netapp_password }}"
   
   vars_files: 
-    - vars/Access_NetApp.yml
+    - vars/access_netapp.yml
     
   roles:
     - account_list
